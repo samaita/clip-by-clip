@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/samaita/clip-by-clip/configs"
+	"github.com/samaita/clip-by-clip/pkg/log"
 	"github.com/samaita/clip-by-clip/pkg/middlewares"
 	"github.com/samaita/clip-by-clip/pkg/response"
 )
@@ -20,5 +21,8 @@ func main() {
 	e.GET("/health", response.HealthCheck)
 
 	// Start the server
-	e.Start(configs.Conf.App.Server.Port)
+	err := e.Start(configs.Conf.App.Server.Port)
+	if err != nil {
+		log.Sugar.Fatalf("Failed to start, %v", err)
+	}
 }
