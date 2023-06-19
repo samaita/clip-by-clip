@@ -1,0 +1,5 @@
+root = "."
+build = "go build -o main"
+command = "main"
+include_ext = [".go"]
+exclude_dir = ["bin", "vendor"]
