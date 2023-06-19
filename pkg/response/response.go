@@ -22,17 +22,25 @@ var mapHTTPStatus = map[int]string{
 }
 
 type BaseResponse struct {
-	Data             interface{}   `json:"data"`
-	Status           string        `json:"status"`
-	TimeElapsed      int64         `json:"time_elapsed"` // ms
-	TimeElapsedHuman time.Duration `json:"time_elapsed_human"`
+	Data             interface{} `json:"data"`
+	Status           string      `json:"status"`
+	TimeElapsedMs    int64       `json:"time_elapsed_ms"`
+	TimeElapsedHuman string      `json:"time_elapsed_human"`
 }
 
 // getBaseResponse wrap message with base response
 func getBaseResponse(c echo.Context, httpCode int, body interface{}) error {
+	var timestamp time.Time
+
+	if t, ok := c.Get("timestamp").(time.Time); ok {
+		timestamp = t
+	}
+
 	return c.JSON(httpCode, BaseResponse{
-		Data:   body,
-		Status: mapHTTPStatus[httpCode],
+		Data:             body,
+		Status:           mapHTTPStatus[httpCode],
+		TimeElapsedMs:    time.Since(timestamp).Milliseconds(),
+		TimeElapsedHuman: time.Since(timestamp).String(),
 	})
 }
 
