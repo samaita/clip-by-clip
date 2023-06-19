@@ -3,16 +3,16 @@ module github.com/samaita/clip-by-clip
 go 1.20
 
 require (
+	github.com/cosmtrek/air v1.44.0
 	github.com/labstack/echo/v4 v4.10.2
-	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.16.0
+	go.uber.org/zap v1.24.0
 )
 
 require (
 	github.com/bep/godartsass v0.16.0 // indirect
 	github.com/bep/golibsass v1.1.0 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
-	github.com/cosmtrek/air v1.44.0 // indirect
 	github.com/creack/pty v1.1.18 // indirect
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
@@ -35,6 +35,8 @@ require (
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
+	go.uber.org/atomic v1.11.0 // indirect
+	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sys v0.9.0 // indirect
