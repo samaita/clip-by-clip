@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"io"
+	"log"
 	"os"
 	"os/exec"
 
@@ -12,23 +13,32 @@ import (
 func ReverseVideo(c echo.Context) error {
 	file, err := c.FormFile("file")
 	if err != nil {
+		log.Println(err)
 		return err
 	}
 	src, err := file.Open()
 	if err != nil {
+		log.Println(err)
 		return err
 	}
 	defer src.Close()
 
+	// validation file size
+	if file.Size > 5000000000 {
+		return response.BadRequestResponse(c, "too big")
+	}
+
 	// Destination
 	dst, err := os.Create(file.Filename)
 	if err != nil {
+		log.Println(err)
 		return err
 	}
 	defer dst.Close()
 
 	// Copy
 	if _, err = io.Copy(dst, src); err != nil {
+		log.Println(err)
 		return err
 	}
 

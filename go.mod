@@ -3,6 +3,7 @@ module github.com/samaita/clip-by-clip
 go 1.20
 
 require (
+	github.com/bh90210/metadata v0.0.0-20230104031414-f9ed69ec633a
 	github.com/cosmtrek/air v1.44.0
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/spf13/viper v1.16.0
@@ -32,6 +33,7 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
+	github.com/tajtiattila/metadata v0.0.0-20221215122306-ecdbfc756113 // indirect
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
